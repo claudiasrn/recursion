@@ -10,7 +10,28 @@ function fibs(num) {
 		sequence.push(sequence[i - 1] + sequence[i - 2]);
 	}
 
-    console.log(sequence);
+	return sequence;
 }
 
-fibs(8);
+console.log(fibs(8));
+
+function fibsRec(num, sequence = [0], index = 1) {
+	if (num === 1 || index >= num) {
+		return sequence;
+	}
+
+	if (index === 1) {
+		index++;
+		sequence.push(1);
+		if (num === 2) {
+			return sequence;
+		}
+	}
+
+	sequence.push(sequence[index - 1] + sequence[index - 2]);
+	index++;
+
+	return fibsRec(num, sequence, index);
+}
+
+console.log(fibsRec(8));
