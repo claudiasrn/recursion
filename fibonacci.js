@@ -1,4 +1,6 @@
 function fibs(num) {
+    if (num < 0) return undefined
+
 	let sequence = [0];
 
 	if (num === 1) return sequence;
@@ -16,6 +18,8 @@ function fibs(num) {
 console.log(fibs(8));
 
 function fibsRec(num, sequence = [0], index = 1) {
+    if (num < 0) return undefined
+
 	if (num === 1 || index >= num) {
 		return sequence;
 	}
